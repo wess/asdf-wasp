@@ -2,6 +2,7 @@
 
 set -e
 
-curl -s https://api.github.com/repos/wasp-lang/wasp/releases |
+# Fetch available versions from GitHub releases without a token
+curl -s "https://api.github.com/repos/wasp-lang/wasp/releases" |
   jq -r '.[].tag_name' | # Extract version tags
-  grep -E '^v[0-9]+\.[0-9]+\.[0-9]+' # Filter for valid semantic versions
+  grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' # Filter for valid semantic versions
