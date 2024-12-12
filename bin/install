@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+version="$1"
+install_dir="$ASDF_INSTALL_PATH"
+
+# Define the URL for the binary
+os=$(uname | tr '[:upper:]' '[:lower:]')
+arch=$(uname -m)
+binary_url="https://github.com/wasp-lang/wasp/releases/download/${version}/wasp-${os}-${arch}.tar.gz"
+
+# Download and extract the binary
+curl -L "$binary_url" | tar -xz -C "$install_dir"
+
+# Make the binary executable
+chmod +x "$install_dir/wasp"
