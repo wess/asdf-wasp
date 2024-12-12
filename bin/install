@@ -1,17 +1,11 @@
 #!/usr/bin/env bash
 
-set -e
+set -euo pipefail
 
-version="$1"
-install_dir="$ASDF_INSTALL_PATH"
+current_script_path=${BASH_SOURCE[0]}
+plugin_dir=$(dirname "$(dirname "$current_script_path")")
 
-# Define the URL for the binary
-os=$(uname | tr '[:upper:]' '[:lower:]')
-arch=$(uname -m)
-binary_url="https://github.com/wasp-lang/wasp/releases/download/${version}/wasp-${os}-${arch}.tar.gz"
+# shellcheck source=./lib/utils.bash
+source "${plugin_dir}/bin/utils"
 
-# Download and extract the binary
-curl -L "$binary_url" | tar -xz -C "$install_dir"
-
-# Make the binary executable
-chmod +x "$install_dir/wasp"
+install_version "$ASDF_INSTALL_TYPE" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
