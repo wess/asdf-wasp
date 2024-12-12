@@ -1,7 +1,6 @@
 <div align="center">
 
-# asdf-wasp [![Build](https://github.com/wess/asdf-wasp/actions/workflows/build.yml/badge.svg)](https://github.com/wess/asdf-wasp/actions/workflows/build.yml) [![Lint](https://github.com/wess/asdf-wasp/actions/workflows/lint.yml/badge.svg)](https://github.com/wess/asdf-wasp/actions/workflows/lint.yml)
-
+# asdf-wasp 
 [Wasp](https://wasp-lang.dev) plugin for the [asdf version manager](https://asdf-vm.com).
 
 </div>
